@@ -1,0 +1,740 @@
+[
+    {
+        "id": "bb1341318dd4b818",
+        "type": "group",
+        "z": "d45aff0facb9ebce",
+        "name": "SpeechV2",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "17c7eb66857fa0d1",
+            "19fbd6e1a74d42f6",
+            "7a826d60fee3b988",
+            "3cd2e9e1064758b6",
+            "7e775a4a0e3d179a",
+            "a1873eceb287d8e6",
+            "4f155cadfbd1b49a",
+            "3a2ee1fe1570ae75",
+            "c44a058cd2c2b7c4",
+            "f30776c19876ae98",
+            "7cc44e85448d0d6f",
+            "bcb437c81713bac3",
+            "9ce40878e3a39d07",
+            "d297b0e34ec39fef",
+            "6b5557d34aae23d9",
+            "436630aaa4f26109",
+            "3929ce52ea65bb7d",
+            "98fc22ed8bf89e75",
+            "0f92b66fa509fbe5",
+            "34fc94eb7ec6473e",
+            "6cebde4e9c7f273f",
+            "89e7e7bef7579739",
+            "5da4beefa51b5080",
+            "c2c32e6159eb9137",
+            "23be7422728c85ef",
+            "635d810d1e9d049a"
+        ],
+        "x": 1154,
+        "y": 559,
+        "w": 962,
+        "h": 482
+    },
+    {
+        "id": "17c7eb66857fa0d1",
+        "type": "ui_text_input",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "label": "Text",
+        "tooltip": "",
+        "group": "1b214600.17935a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 1430,
+        "y": 620,
+        "wires": [
+            [
+                "7a826d60fee3b988"
+            ]
+        ]
+    },
+    {
+        "id": "19fbd6e1a74d42f6",
+        "type": "inject",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "Guro er veldig lur",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 1280,
+        "y": 620,
+        "wires": [
+            [
+                "17c7eb66857fa0d1"
+            ]
+        ]
+    },
+    {
+        "id": "7a826d60fee3b988",
+        "type": "change",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "textInput",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1590,
+        "y": 620,
+        "wires": [
+            [
+                "3cd2e9e1064758b6"
+            ]
+        ]
+    },
+    {
+        "id": "3cd2e9e1064758b6",
+        "type": "switch",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "is text empty?",
+        "property": "textInput",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1780,
+        "y": 620,
+        "wires": [
+            [
+                "7e775a4a0e3d179a"
+            ],
+            [
+                "a1873eceb287d8e6"
+            ]
+        ]
+    },
+    {
+        "id": "7e775a4a0e3d179a",
+        "type": "change",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "enabled false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1950,
+        "y": 600,
+        "wires": [
+            [
+                "4f155cadfbd1b49a"
+            ]
+        ]
+    },
+    {
+        "id": "a1873eceb287d8e6",
+        "type": "change",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "enabled true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1950,
+        "y": 640,
+        "wires": [
+            [
+                "4f155cadfbd1b49a"
+            ]
+        ]
+    },
+    {
+        "id": "4f155cadfbd1b49a",
+        "type": "link out",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "3a2ee1fe1570ae75"
+        ],
+        "x": 2075,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "3a2ee1fe1570ae75",
+        "type": "link in",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "links": [
+            "4f155cadfbd1b49a"
+        ],
+        "x": 1285,
+        "y": 680,
+        "wires": [
+            [
+                "c44a058cd2c2b7c4"
+            ]
+        ]
+    },
+    {
+        "id": "c44a058cd2c2b7c4",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "group": "1b214600.17935a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Speak !",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "textInput",
+        "payloadType": "flow",
+        "topic": "",
+        "topicType": "str",
+        "x": 1380,
+        "y": 680,
+        "wires": [
+            [
+                "f30776c19876ae98"
+            ]
+        ]
+    },
+    {
+        "id": "f30776c19876ae98",
+        "type": "function",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "my function that does stuff",
+        "func": "msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1600,
+        "y": 680,
+        "wires": [
+            [
+                "7cc44e85448d0d6f"
+            ]
+        ]
+    },
+    {
+        "id": "7cc44e85448d0d6f",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "speech",
+        "topic": "speech",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 1800,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "bcb437c81713bac3",
+        "type": "function",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "func": "msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1780,
+        "y": 760,
+        "wires": [
+            [
+                "9ce40878e3a39d07"
+            ]
+        ]
+    },
+    {
+        "id": "9ce40878e3a39d07",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "sendLang",
+        "topic": "anylangage",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 1920,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "d297b0e34ec39fef",
+        "type": "inject",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1280,
+        "y": 760,
+        "wires": [
+            [
+                "436630aaa4f26109",
+                "635d810d1e9d049a"
+            ]
+        ]
+    },
+    {
+        "id": "6b5557d34aae23d9",
+        "type": "ui_dropdown",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "1b214600.17935a",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "className": "",
+        "x": 1630,
+        "y": 760,
+        "wires": [
+            [
+                "bcb437c81713bac3"
+            ]
+        ]
+    },
+    {
+        "id": "436630aaa4f26109",
+        "type": "change",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "options",
+                "pt": "msg",
+                "to": "[{\"afrikaans\":\"af\"},{\"albanian\":\"sq\"},{\"amharic\":\"am\"},{\"arabic\":\"ar\"},{\"armenian\":\"hy\"},{\"azerbaijani\":\"az\"},{\"basque\":\"eu\"},{\"belarusian\":\"be\"},{\"bengali\":\"bn\"},{\"bosnian\":\"bs\"},{\"bulgarian\":\"bg\"},{\"catalan\":\"ca\"},{\"cebuano\":\"ceb\"},{\"chichewa\":\"ny\"},{\"chinese (simplified)\":\"zh-CN\"},{\"chinese (traditional)\":\"zh-TW\"},{\"corsican\":\"co\"},{\"croatian\":\"hr\"},{\"czech\":\"cs\"},{\"danish\":\"da\"},{\"dutch\":\"nl\"},{\"english\":\"en\"},{\"esperanto\":\"eo\"},{\"estonian\":\"et\"},{\"filipino\":\"tl\"},{\"finnish\":\"fi\"},{\"french\":\"fr\"},{\"frisian\":\"fy\"},{\"galician\":\"gl\"},{\"georgian\":\"ka\"},{\"german\":\"de\"},{\"greek\":\"el\"},{\"gujarati\":\"gu\"},{\"haitian creole\":\"ht\"},{\"hausa\":\"ha\"},{\"hawaiian\":\"haw\"},{\"hebrew\":\"iw\"},{\"hindi\":\"hi\"},{\"hmong\":\"hmn\"},{\"hungarian\":\"hu\"},{\"icelandic\":\"is\"},{\"igbo\":\"ig\"},{\"indonesian\":\"id\"},{\"irish\":\"ga\"},{\"italian\":\"it\"},{\"japanese\":\"ja\"},{\"javanese\":\"jw\"},{\"kannada\":\"kn\"},{\"kazakh\":\"kk\"},{\"khmer\":\"km\"},{\"kinyarwanda\":\"rw\"},{\"korean\":\"ko\"},{\"kurdish\":\"ku\"},{\"kyrgyz\":\"ky\"},{\"lao\":\"lo\"},{\"latin\":\"la\"},{\"latvian\":\"lv\"},{\"lithuanian\":\"lt\"},{\"luxembourgish\":\"lb\"},{\"macedonian\":\"mk\"},{\"malagasy\":\"mg\"},{\"malay\":\"ms\"},{\"malayalam\":\"ml\"},{\"maltese\":\"mt\"},{\"maori\":\"mi\"},{\"marathi\":\"mr\"},{\"mongolian\":\"mn\"},{\"myanmar\":\"my\"},{\"nepali\":\"ne\"},{\"norwegian\":\"no\"},{\"odia\":\"or\"},{\"pashto\":\"ps\"},{\"persian\":\"fa\"},{\"polish\":\"pl\"},{\"portuguese\":\"pt\"},{\"punjabi\":\"pa\"},{\"romanian\":\"ro\"},{\"russian\":\"ru\"},{\"samoan\":\"sm\"},{\"scots gaelic\":\"gd\"},{\"serbian\":\"sr\"},{\"sesotho\":\"st\"},{\"shona\":\"sn\"},{\"sindhi\":\"sd\"},{\"sinhala\":\"si\"},{\"slovak\":\"sk\"},{\"slovenian\":\"sl\"},{\"somali\":\"so\"},{\"spanish\":\"es\"},{\"sundanese\":\"su\"},{\"swahili\":\"sw\"},{\"swedish\":\"sv\"},{\"tajik\":\"tg\"},{\"tamil\":\"ta\"},{\"tatar\":\"tt\"},{\"telugu\":\"te\"},{\"thai\":\"th\"},{\"turkish\":\"tr\"},{\"turkmen\":\"tk\"},{\"ukrainian\":\"uk\"},{\"urdu\":\"ur\"},{\"uyghur\":\"ug\"},{\"uzbek\":\"uz\"},{\"vietnamese\":\"vi\"},{\"welsh\":\"cy\"},{\"xhosa\":\"xh\"},{\"yiddish\":\"yi\"},{\"yoruba\":\"yo\"},{\"zulu\":\"zu\"}]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1440,
+        "y": 760,
+        "wires": [
+            [
+                "6b5557d34aae23d9"
+            ]
+        ]
+    },
+    {
+        "id": "3929ce52ea65bb7d",
+        "type": "ui_switch",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "label": "Translate ?",
+        "tooltip": "",
+        "group": "1b214600.17935a",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1630,
+        "y": 920,
+        "wires": [
+            [
+                "0f92b66fa509fbe5"
+            ]
+        ]
+    },
+    {
+        "id": "98fc22ed8bf89e75",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "topic": "translate",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 1920,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "0f92b66fa509fbe5",
+        "type": "function",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "func": "msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1780,
+        "y": 920,
+        "wires": [
+            [
+                "98fc22ed8bf89e75"
+            ]
+        ]
+    },
+    {
+        "id": "34fc94eb7ec6473e",
+        "type": "ui_switch",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "label": "Accent ?",
+        "tooltip": "",
+        "group": "1b214600.17935a",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1640,
+        "y": 1000,
+        "wires": [
+            [
+                "6cebde4e9c7f273f"
+            ]
+        ]
+    },
+    {
+        "id": "6cebde4e9c7f273f",
+        "type": "function",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "func": "msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1780,
+        "y": 1000,
+        "wires": [
+            [
+                "89e7e7bef7579739"
+            ]
+        ]
+    },
+    {
+        "id": "89e7e7bef7579739",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "topic": "original",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 1920,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "5da4beefa51b5080",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "sendLang",
+        "topic": "sendAccent",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 1920,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "c2c32e6159eb9137",
+        "type": "function",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "func": "msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1780,
+        "y": 820,
+        "wires": [
+            [
+                "5da4beefa51b5080"
+            ]
+        ]
+    },
+    {
+        "id": "23be7422728c85ef",
+        "type": "ui_dropdown",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "1b214600.17935a",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "className": "",
+        "x": 1630,
+        "y": 820,
+        "wires": [
+            [
+                "c2c32e6159eb9137"
+            ]
+        ]
+    },
+    {
+        "id": "635d810d1e9d049a",
+        "type": "change",
+        "z": "d45aff0facb9ebce",
+        "g": "bb1341318dd4b818",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "options",
+                "pt": "msg",
+                "to": "[{\"afrikaans\":\"af\"},{\"albanian\":\"sq\"},{\"amharic\":\"am\"},{\"arabic\":\"ar\"},{\"armenian\":\"hy\"},{\"azerbaijani\":\"az\"},{\"basque\":\"eu\"},{\"belarusian\":\"be\"},{\"bengali\":\"bn\"},{\"bosnian\":\"bs\"},{\"bulgarian\":\"bg\"},{\"catalan\":\"ca\"},{\"cebuano\":\"ceb\"},{\"chichewa\":\"ny\"},{\"chinese (simplified)\":\"zh-CN\"},{\"chinese (traditional)\":\"zh-TW\"},{\"corsican\":\"co\"},{\"croatian\":\"hr\"},{\"czech\":\"cs\"},{\"danish\":\"da\"},{\"dutch\":\"nl\"},{\"english\":\"en\"},{\"esperanto\":\"eo\"},{\"estonian\":\"et\"},{\"filipino\":\"tl\"},{\"finnish\":\"fi\"},{\"french\":\"fr\"},{\"frisian\":\"fy\"},{\"galician\":\"gl\"},{\"georgian\":\"ka\"},{\"german\":\"de\"},{\"greek\":\"el\"},{\"gujarati\":\"gu\"},{\"haitian creole\":\"ht\"},{\"hausa\":\"ha\"},{\"hawaiian\":\"haw\"},{\"hebrew\":\"iw\"},{\"hindi\":\"hi\"},{\"hmong\":\"hmn\"},{\"hungarian\":\"hu\"},{\"icelandic\":\"is\"},{\"igbo\":\"ig\"},{\"indonesian\":\"id\"},{\"irish\":\"ga\"},{\"italian\":\"it\"},{\"japanese\":\"ja\"},{\"javanese\":\"jw\"},{\"kannada\":\"kn\"},{\"kazakh\":\"kk\"},{\"khmer\":\"km\"},{\"kinyarwanda\":\"rw\"},{\"korean\":\"ko\"},{\"kurdish\":\"ku\"},{\"kyrgyz\":\"ky\"},{\"lao\":\"lo\"},{\"latin\":\"la\"},{\"latvian\":\"lv\"},{\"lithuanian\":\"lt\"},{\"luxembourgish\":\"lb\"},{\"macedonian\":\"mk\"},{\"malagasy\":\"mg\"},{\"malay\":\"ms\"},{\"malayalam\":\"ml\"},{\"maltese\":\"mt\"},{\"maori\":\"mi\"},{\"marathi\":\"mr\"},{\"mongolian\":\"mn\"},{\"myanmar\":\"my\"},{\"nepali\":\"ne\"},{\"norwegian\":\"no\"},{\"odia\":\"or\"},{\"pashto\":\"ps\"},{\"persian\":\"fa\"},{\"polish\":\"pl\"},{\"portuguese\":\"pt\"},{\"punjabi\":\"pa\"},{\"romanian\":\"ro\"},{\"russian\":\"ru\"},{\"samoan\":\"sm\"},{\"scots gaelic\":\"gd\"},{\"serbian\":\"sr\"},{\"sesotho\":\"st\"},{\"shona\":\"sn\"},{\"sindhi\":\"sd\"},{\"sinhala\":\"si\"},{\"slovak\":\"sk\"},{\"slovenian\":\"sl\"},{\"somali\":\"so\"},{\"spanish\":\"es\"},{\"sundanese\":\"su\"},{\"swahili\":\"sw\"},{\"swedish\":\"sv\"},{\"tajik\":\"tg\"},{\"tamil\":\"ta\"},{\"tatar\":\"tt\"},{\"telugu\":\"te\"},{\"thai\":\"th\"},{\"turkish\":\"tr\"},{\"turkmen\":\"tk\"},{\"ukrainian\":\"uk\"},{\"urdu\":\"ur\"},{\"uyghur\":\"ug\"},{\"uzbek\":\"uz\"},{\"vietnamese\":\"vi\"},{\"welsh\":\"cy\"},{\"xhosa\":\"xh\"},{\"yiddish\":\"yi\"},{\"yoruba\":\"yo\"},{\"zulu\":\"zu\"}]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1440,
+        "y": 820,
+        "wires": [
+            [
+                "23be7422728c85ef"
+            ]
+        ]
+    },
+    {
+        "id": "1b214600.17935a",
+        "type": "ui_group",
+        "name": "Fun with Speech",
+        "tab": "13aded38443bf8e0",
+        "order": 1,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1a4ea5216eacef08",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "13aded38443bf8e0",
+        "type": "ui_tab",
+        "name": "Speech V2",
+        "icon": "dashboard",
+        "order": 6,
+        "disabled": false,
+        "hidden": false
+    }
+]
